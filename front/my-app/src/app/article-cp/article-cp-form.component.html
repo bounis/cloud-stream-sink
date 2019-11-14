@@ -1,0 +1,4 @@
+<form [formGroup]="myForm" (ngSubmit)="onSubmit()">
+  <input name="desc" [formControl]="myForm.controls['desc']">
+  <input type="submit">
+</form>
