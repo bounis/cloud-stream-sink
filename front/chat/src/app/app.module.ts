@@ -8,6 +8,7 @@ import {ThreadsService} from './chat-threads/threads.service';
 import {ChatThreadsComponent} from './chat-threads/chat-threads.component';
 import {ChatWindowComponent} from './chat-window/chat-window.component';
 import {ThreadService} from './chat-thread/thread.service';
+import {MessageService} from './message/Message.service';
 
 @NgModule({
   declarations: [
@@ -20,7 +21,7 @@ import {ThreadService} from './chat-thread/thread.service';
     BrowserModule,
     AppRoutingModule
   ],
-  providers: [ThreadsService, ThreadService],
+  providers: [ThreadsService, ThreadService, MessageService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

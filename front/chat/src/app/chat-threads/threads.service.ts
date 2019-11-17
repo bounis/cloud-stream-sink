@@ -1,20 +1,16 @@
 import {Thread} from '../chat-thread/thread.model';
 import {Injectable} from '@angular/core';
+import {BehaviorSubject, Subject} from 'rxjs';
 
 @Injectable()
 export class ThreadsService {
-  currentThread: Thread;
+  currentThread: Subject<Thread> = new BehaviorSubject<Thread>(null);
   setCurrentThread(thread: Thread): void {
-    this.currentThread = thread;
+    this.currentThread.next(thread);
   }
-
-  getCurrentThread(): Thread {
-    return this.currentThread;
-  }
-
   getOrderedThreads(): Array<Thread> {
     const threads: Array<Thread> =
-      [new Thread('1', 'first thread'), new Thread('2', 'second thread')];
+      [new Thread(1, 'first thread'), new Thread(2, 'second thread')];
     return threads;
   }
 }

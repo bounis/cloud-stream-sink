@@ -3,4 +3,8 @@
 <br>
 {{thread.name}}
 <br>
-<textarea rows="5"></textarea> <button>send</button>
+<textarea rows="5" #textMsg></textarea> <button (click)="sendMessage(textMsg)">send</button>
+<br>
+<small *ngFor="let msg of getMessages()">
+  {{msg.text}}<br>
+</small>

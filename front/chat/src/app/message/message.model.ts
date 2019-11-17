@@ -1,24 +1,18 @@
-import {User} from '../user/user.model';
-import {uuid} from './../util/uuid';
-import {Thread} from '../chat-thread/thread.model';
-
 /**
  * Message represents one message being sent in a Thread
  */
 export class Message {
-  id: string;
-  sentAt: Date;
-  isRead: boolean;
-  author: User;
-  text: string;
-  thread: Thread;
 
-  constructor(obj?: any) {
-    this.id = obj && obj.id || uuid();
-    this.isRead = obj && obj.isRead || false;
-    this.sentAt = obj && obj.sentAt || new Date();
-    this.author = obj && obj.author || null;
-    this.text = obj && obj.text || null;
-    this.thread = obj && obj.thread || null;
+  id: number;
+  threadId: number;
+  text: string;
+  sentAt: Date;
+
+
+  constructor(id: number, threadId: number, text: string, sentAt: Date) {
+    this.id = id;
+    this.threadId = threadId;
+    this.text = text;
+    this.sentAt = sentAt;
   }
 }
