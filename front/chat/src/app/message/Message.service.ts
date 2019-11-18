@@ -1,6 +1,7 @@
 import {Message} from './message.model';
 import {Injectable} from '@angular/core';
 import * as _ from 'lodash';
+import {BehaviorSubject, Subject} from 'rxjs';
 
 @Injectable()
 export class MessageService {
@@ -11,6 +12,7 @@ export class MessageService {
     new Message(3, 3, 'message thread  3', new Date()),
   ];
 
+  newMessages: Subject<Message> = new Subject<Message>();
   getMessages(): Array<Message> {
     return this.messages;
   }
